@@ -1,27 +1,26 @@
-# BudgetBuddy - Personal Finance and Budget Tracking App
+# Personal Finance and Budget Tracking Application (BudgetBuddy)
 
-BudgetBuddy is a personal finance and budget tracking application built with **SvelteKit** and powered by **Firebase** for backend services. The app allows users to track their income, expenses, and set budgeting goals in a simple and intuitive interface.
-
-## Features
-
-- Track your expenses and income
-- Set and manage monthly budget goals
-- View financial reports and trends
-- Integrate with Firebase for real-time data storage
+BudgetBuddy is a **web application** that helps users track their income and expenses, manage their budgets more effectively, and gain better control over their finances. Users can record their income and expenses, monitor their financial status, and create personalized budgets.
 
 ## Technologies Used
 
-- **SvelteKit** - A modern framework for building web applications.
-- **Firebase** - Backend-as-a-service for user authentication and data storage.
-- **Svelte** - A lightweight front-end framework.
-- **JavaScript** - The programming language used for the application logic.
-- **API Integration** - For handling external data (if needed).
+- **SvelteKit** - A modern framework used for building web applications.
+- **Firebase** - A cloud-based service used for real-time data storage and user authentication.
+- **PyCharm** - A Python-based development environment for backend development.
+- **JavaScript (Svelte)** - The language used for frontend development.
 
-## Installation
+## Features
 
-Follow these steps to get started with the project:
+- Income and expense tracking
+- Budget goal setting
+- Financial reports and analytics
+- Real-time data management with Firebase integration
 
-### 1. Clone the repository
+## Setup
+
+Follow the steps below to get started with the project:
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/budgetBuddy.git
