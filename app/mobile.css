@@ -1,3 +1,5 @@
+.auth-controls { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; }
+.auth-controls .language-select { width:5rem; flex-shrink:0; }
 /* A final mobile guard layer for small phones, zoomed browsers and compact tablets. */
 html,
 body {
@@ -14,7 +16,11 @@ body {
   min-width: 0;
 }
 
-@media (max-width: 820px) {
+/*
+ * Some Android in-app browsers expose a desktop-sized CSS viewport even on a
+ * phone. Touch-first devices still need the compact layout in that case.
+ */
+@media (max-width: 820px), (hover: none) and (pointer: coarse) {
   .land-nav {
     height: 66px;
     padding-inline: 18px;
@@ -76,5 +82,18 @@ body {
     justify-content: space-around;
     background: white;
     border-top: 1px solid #e0e3eb;
+  }
+
+  .bottom button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .content,
+  .section,
+  .hero,
+  .land-nav {
+    width: 100%;
+    max-width: 100%;
   }
 }

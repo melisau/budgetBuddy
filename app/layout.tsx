@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./mobile.css";
+import {LanguageProvider} from "@/components/providers/language-provider";
+import {Toaster} from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "BudgetBuddy — Personal finance, made clear",
@@ -24,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
+      <body className="antialiased"><LanguageProvider>{children}<Toaster richColors/></LanguageProvider></body>
     </html>
   );
 }
