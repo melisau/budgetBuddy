@@ -1,6 +1,8 @@
 "use client";
 import type {ReactNode} from "react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import {Bell,ChartNoAxesCombined,ChevronRight,Home,Landmark,LayoutDashboard,MoreHorizontal,PiggyBank,Plus,ReceiptText,Settings,Sparkles,Target,Users} from "lucide-react";
+import {Button} from "@/components/ui/button";
 import {Progress} from "@/components/ui/progress";
 import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from "@/components/ui/select";
 import {LanguageSelect,useT} from "@/components/providers/language-provider";
@@ -42,6 +44,15 @@ export function AppHeader({view,quickAdd}:{view:AppView;quickAdd:ReactNode}){
   <LanguageSelect/>
   <Select defaultValue="sep"><SelectTrigger className="month-select" aria-label={t("Select month")}><SelectValue/></SelectTrigger><SelectContent><SelectItem value="sep">{t("September 2026")}</SelectItem><SelectItem value="aug">{t("August 2026")}</SelectItem><SelectItem value="jul">{t("July 2026")}</SelectItem></SelectContent></Select>
   <button type="button" aria-label={t("Notifications")}><Bell/></button>
+  <SignedOut>
+   <SignInButton mode="redirect" forceRedirectUrl="/dashboard">
+     <Button type="button" variant="outline" size="sm">{t("Sign in")}</Button>
+   </SignInButton>
+   <SignUpButton mode="redirect" forceRedirectUrl="/dashboard">
+     <Button type="button" size="sm">{t("Get started")}</Button>
+   </SignUpButton>
+  </SignedOut>
+  <SignedIn><UserButton/></SignedIn>
   {quickAdd}
  </header>;
 }

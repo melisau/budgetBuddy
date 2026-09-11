@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
+import { shadcn } from "@clerk/ui/themes";
 import "./globals.css";
 import "./mobile.css";
 import {LanguageProvider} from "@/components/providers/language-provider";
@@ -29,7 +31,11 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
-      <body className="antialiased"><LanguageProvider>{children}<Toaster richColors/></LanguageProvider></body>
+      <body className="antialiased">
+        <ClerkProvider appearance={{ theme: shadcn }}>
+          <LanguageProvider>{children}<Toaster richColors/></LanguageProvider>
+        </ClerkProvider>
+      </body>
     </html>
   );
 }

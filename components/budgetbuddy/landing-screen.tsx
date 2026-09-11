@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import {
   Area,
   AreaChart,
@@ -100,8 +101,18 @@ export function LandingScreen({ go }: { go: Navigate }) {
           <a href="#pricing" onClick={closeMenu}>{t("Pricing")}</a>
           <a href="#about" onClick={closeMenu}>{t("About")}</a>
           <LanguageSelect />
-          <button type="button" onClick={() => go("signin")}>{t("Sign in")}</button>
-          <Button onClick={() => go("signup")}>{t("Get started")}</Button>
+          <SignedOut>
+            <SignInButton mode="redirect" forceRedirectUrl="/dashboard">
+              <button type="button">{t("Sign in")}</button>
+            </SignInButton>
+            <SignUpButton mode="redirect" forceRedirectUrl="/dashboard">
+              <Button>{t("Get started")}</Button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <Button variant="outline" onClick={() => go("dashboard")}>{t("Dashboard")}</Button>
+            <UserButton />
+          </SignedIn>
         </nav>
         <div className="mobile-language"><LanguageSelect /></div>
         <button
