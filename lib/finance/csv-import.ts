@@ -80,7 +80,9 @@ function parseAmount(value: string) {
 
   const lastComma = cleaned.lastIndexOf(",");
   const lastDot = cleaned.lastIndexOf(".");
-  const decimalIndex = Math.max(lastComma, lastDot);
+  const separatorIndex = Math.max(lastComma, lastDot);
+  const separatorCount = (cleaned.match(/[,.]/g) ?? []).length;
+  const decimalIndex = separatorCount === 1 && cleaned.length - separatorIndex - 1 === 3 ? -1 : separatorIndex;
   const integerPart = (decimalIndex === -1 ? cleaned : cleaned.slice(0, decimalIndex)).replace(/[,.]/g, "");
   const fractionPart = decimalIndex === -1 ? "" : cleaned.slice(decimalIndex + 1).replace(/[,.]/g, "");
 
